@@ -2,18 +2,18 @@
 The flask application package.
 """
 import logging
-import sys
-import os
-from logging.handlers import RotatingFileHandler
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_session import Session
+import os, sys
+from logging.handlers import RotatingFileHandler
 
-app = Flask(__name__)
+app = Flask(_name_)
 app.config.from_object(Config)
 # TODO: Add any logging levels and handlers with app.logger
+# Format used in Log Stream
 LOG_FORMAT = '%(asctime)s %(levelname)s %(name)s: %(message)s'
 
 # 1) Stream logs to stdout (Azure Log Stream reads this)
@@ -35,7 +35,6 @@ for h in handlers:
 app.logger.setLevel(logging.INFO)
 
 app.logger.info("Flask app initialized and logging configured.")
-
 Session(app)
 db = SQLAlchemy(app)
 login = LoginManager(app)
