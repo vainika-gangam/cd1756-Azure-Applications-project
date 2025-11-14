@@ -10,7 +10,7 @@ from flask_session import Session
 import os, sys
 from logging.handlers import RotatingFileHandler
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config.from_object(Config)
 # TODO: Add any logging levels and handlers with app.logger
 # Format used in Log Stream
