@@ -2,6 +2,7 @@
 The flask application package.
 """
 import logging
+import sys
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
